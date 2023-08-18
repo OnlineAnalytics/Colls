@@ -50,7 +50,7 @@ if option == 'xG For':
  if top == 'All':
   d = df[df['Team']=='Colls']
   d.Y = 100-d.Y
-  pitch = VerticalPitch(pitch_type='opta', half = True)
+  pitch = VerticalPitch(pitch_type='opta', half = True,line_color='k')
   fig, ax = pitch.draw(figsize=(50,50))
   pitch.scatter(d[d['Event'] =='Shot Off'].X,d[d['Event'] =='Shot Off'].Y,s=(d[d['Event'] =='Shot Off'].xG*90000),alpha = 0.8,label = 'Shot Off',ax=ax)
   pitch.scatter(d[d['Event'] =='Shot Saved'].X,d[d['Event'] =='Shot Saved'].Y,s=(d[d['Event'] =='Shot Saved'].xG*90000),c='orange',alpha=0.8,label = 'Saved', ax=ax)
@@ -65,7 +65,7 @@ if option == 'xG For':
    d.Y = 100-d.Y
    player = top
    d = d[d['Player']==player]
-   pitch = VerticalPitch(pitch_type='opta', half = True)
+   pitch = VerticalPitch(pitch_type='opta', half = True,line_color='k')
    fig, ax = pitch.draw(figsize=(50,50))
    pitch.scatter(d[d['Event'] =='Shot Off'].X,d[d['Event'] =='Shot Off'].Y,s=(d[d['Event'] =='Shot Off'].xG*90000),alpha = 0.8,label = 'Shot Off',ax=ax)
    pitch.scatter(d[d['Event'] =='Shot Saved'].X,d[d['Event'] =='Shot Saved'].Y,s=(d[d['Event'] =='Shot Saved'].xG*90000),c='orange',alpha=0.8,label = 'Saved', ax=ax)
@@ -78,7 +78,7 @@ if option == 'xG For':
 if option == 'xG Against':
  d = df[df['Team']!='Colls']
  d.X = 100-d.X
- pitch = VerticalPitch(pitch_type='opta', half = True)
+ pitch = VerticalPitch(pitch_type='opta', half = True,line_color='k')
  fig, ax = pitch.draw(figsize=(50,50))
  pitch.scatter(d[d['Event'] =='Shot Off'].X,d[d['Event'] =='Shot Off'].Y,s=(d[d['Event'] =='Shot Off'].xG*90000),alpha = 0.8,label = 'Shot Off',ax=ax)
  pitch.scatter(d[d['Event'] =='Shot Saved'].X,d[d['Event'] =='Shot Saved'].Y,s=(d[d['Event'] =='Shot Saved'].xG*90000),c='orange',alpha=0.8,label = 'Saved', ax=ax)
