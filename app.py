@@ -60,7 +60,7 @@ if option == 'For':
  if top =='Player':
    d = df[df['Team']=='Colls']
    d.Y = 100-d.Y
-   player = st.selectbox('Select Player', options = d.Player.unique().tolist())
+   player = st.selectbox('Select Player', options = d.Player.unique().tolist(),label_visibility=‘collapsed’)
    d = d[d['Player']==player]
    pitch = VerticalPitch(pitch_type='opta', half = True)
    fig, ax = pitch.draw(figsize=(50,50))
