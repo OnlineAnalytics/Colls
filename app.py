@@ -95,8 +95,8 @@ if option == 'Expected shot location':
   
  if tob == 'For':
   shot_df = df[df['Team']=='Colls']
-  pitch = VerticalPitch(pitch_type='opta',half=True,line_color='black')   
-  shot = pitch.bin_statistic(shot_df.X, 100-shot_df.Y, statistic='count', bins=(16, 12), normalize=False)
+  pitch = VerticalPitch(pitch_type='opta',half=True,line_color='black',line_zorder=10)   
+  shot = pitch.bin_statistic(shot_df.X, 100-shot_df.Y, statistic='count', bins=(12, 8), normalize=False)
 
   fig, ax = pitch.grid(grid_height=0.9, title_height=0.06, axis=False,
                      endnote_height=0.04, title_space=0, endnote_space=0)
