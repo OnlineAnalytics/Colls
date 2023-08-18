@@ -39,10 +39,10 @@ st.markdown('<p style="font-size: 25px; font-weight: bold;">Season total xG For 
 st.markdown('<p style="font-size: 25px; font-weight: bold;">Goals For {} - {} Goals Against</p>'.format(len(df[(df['Team']=='Colls') & (df['Event']=='Goal')]),len(df[(df['Team']!='Colls') & (df['Event']=='Goal')])), unsafe_allow_html=True)
 with st.sidebar:
     st.markdown('<h1 style="font-family: Consolas; font-size: 34px;">Select xG map for or against.</h1>', unsafe_allow_html=True)
-    option = st.selectbox(' ',('For','Against'),label_visibility='collapsed')
+    option = st.selectbox(' ',('For','Against'))
 
 if option == 'For':
- top = st.radio('Full team or player specific?', options=('Full Team', 'Player'),label_visibility='collapsed')
+ top = st.radio('Full team or player specific?', options=('Full Team', 'Player'))
  
  if top == 'Full Team':
   d = df[df['Team']=='Colls']
@@ -60,7 +60,7 @@ if option == 'For':
  if top =='Player':
    d = df[df['Team']=='Colls']
    d.Y = 100-d.Y
-   player = st.selectbox('Select Player', options = d.Player.unique().tolist(),label_visibility='collapsed')
+   player = st.selectbox('Select Player', options = d.Player.unique().tolist())
    d = d[d['Player']==player]
    pitch = VerticalPitch(pitch_type='opta', half = True)
    fig, ax = pitch.draw(figsize=(50,50))
