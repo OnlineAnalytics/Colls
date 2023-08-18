@@ -43,7 +43,7 @@ with st.sidebar:
 
 if option == 'For':
  d = df[df['Team']=='Colls']
- pl = d.Player.unique.tolist()
+ pl = d.Player.unique().tolist()
  top = st.selectbox('Leave blank to see all shots, or select specific player:', ['', pl], format_func=lambda x: ' ' if x == '' else x)
  
  if top == ' ':
