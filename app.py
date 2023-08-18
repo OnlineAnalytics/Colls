@@ -144,4 +144,21 @@ if option == 'Expected goal location':
    fig.suptitle('Goal probability 2D histogram', fontsize = 30)
    plt.show()
    st.pyplot(fig)
+
+  if toc == 'Against':
+   goal_df = df[(df['Team']!='Colls') & (df['Event']=='Goal')]
+   pitch = VerticalPitch(pitch_type='opta',half=True,line_color='black',line_zorder=10)   
+   goal = pitch.bin_statistic(goal_df.X, 100-goal_df.Y, statistic='count', bins=(12, 8), normalize=False)
+   goal_count = goal["statistic"]
+   goal_probability = goal_count/len(df[df['Team']!='Colls'])
+   fig, ax = pitch.grid(grid_height=0.9, title_height=0.06, axis=False,
+                     endnote_height=0.04, title_space=0, endnote_space=0)
+   goal["statistic"] = goal_probability
+   pcm  = pitch.heatmap(goal, cmap='Reds', edgecolor='grey', ax=ax['pitch'])
+#legend to our plot
+   ax_cbar = fig.add_axes((1, 0.093, 0.03, 0.786))
+   cbar = plt.colorbar(pcm, cax=ax_cbar)
+   fig.suptitle('Goal probability 2D histogram', fontsize = 30)
+   plt.show()
+   st.pyplot(fig)
    
