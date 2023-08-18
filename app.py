@@ -101,5 +101,9 @@ if option == 'Expected shot location':
   shot['statistic'] = shot_probability
   fig, ax = pitch.draw(figsize=(50,50))
   pcm = pitch.heatmap(shot, cmap='Greens',edgecolor='grey',ax=ax)
+  ax_cbar = fig.add_axes((1, 0.093, 0.03, 0.786))
+  cbar = plt.colorbar(pcm, cax=ax_cbar)
+  fig.suptitle('Shot probability 2D histogram', fontsize = 30)
+  plt.show()
   st.pyplot(fig)
   
