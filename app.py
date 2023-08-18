@@ -42,7 +42,8 @@ with st.sidebar:
     option = st.selectbox(' ',('For','Against'))
 
 if option == 'For':
- top = st.selectbox("Select 'All' to see all shots, or a specific player.", options=(['All', df[df['Team']=='Colls'].Player.unique().tolist()]))
+ d = df[df['Team']=='Colls']
+ top = st.selectbox("Select 'All' to see all shots, or a specific player.", options=('All',d.Player.unique().tolist()))
  
  if top == 'All':
   d = df[df['Team']=='Colls']
