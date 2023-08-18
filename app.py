@@ -129,7 +129,7 @@ if option == 'Expected shot location':
 if option == 'Expected goal location':
   toc = st.selectbox("For or against?", ('For', 'Against'))
   if toc == 'For':
-   goal_df = df[(df['Team']=='Colls') & (df['Event']=='Goal')
+   goal_df = df[(df['Team']=='Colls') & (df['Event']=='Goal')]
    pitch = VerticalPitch(pitch_type='opta',half=True,line_color='black',line_zorder=10)   
    goal = pitch.bin_statistic(shot_df.X, 100-shot_df.Y, statistic='count', bins=(12, 8), normalize=False)
    goal_count = goal["statistic"]
