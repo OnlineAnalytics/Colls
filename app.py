@@ -42,7 +42,7 @@ with st.sidebar:
     option = st.selectbox(' ',('For','Against'))
 
 if option == 'For':
- top = st.radio('Full team or player specific?', options=('Full Team', 'Player'))
+ top = st.selectbox("Select 'all' to see all all shots, or a specific player.", options=('All', df[df['Team']=='Colls'].Player.unique().tolist()))
  
  if top == 'Full Team':
   d = df[df['Team']=='Colls']
