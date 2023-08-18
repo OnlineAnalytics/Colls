@@ -42,9 +42,9 @@ with st.sidebar:
     option = st.selectbox(' ',('For','Against'))
 
 if option == 'For':
- top = st.selectbox("Select 'all' to see all all shots, or a specific player.", options=('All', df[df['Team']=='Colls'].Player.unique().tolist()))
+ top = st.selectbox("Select 'All' to see all shots, or a specific player.", options=('All', df[df['Team']=='Colls'].Player.unique().tolist()))
  
- if top == 'Full Team':
+ if top == 'All':
   d = df[df['Team']=='Colls']
   d.Y = 100-d.Y
   pitch = VerticalPitch(pitch_type='opta', half = True)
@@ -57,10 +57,10 @@ if option == 'For':
   plt.legend(fontsize=80,loc=1)
   st.pyplot(fig)
   st.write(d.groupby('Player').agg({'xG':'sum'}))
- if top =='Player':
+ if top !='All':
    d = df[df['Team']=='Colls']
    d.Y = 100-d.Y
-   player = st.selectbox('Select Player', options = d.Player.unique().tolist())
+   player = top
    d = d[d['Player']==player]
    pitch = VerticalPitch(pitch_type='opta', half = True)
    fig, ax = pitch.draw(figsize=(50,50))
