@@ -93,7 +93,7 @@ if option == 'xG Against':
 if option == 'Expected shot location':
  tob = st.selectbox("For or against?", ('For','Against'))
   
- if top == 'For':
+ if tob == 'For':
   shot_df = df[df['Team']=='Colls']
   pitch = VerticalPitch(pitch_type='opta',half=True,line_color='black')   
   shot_probability = len(shot_df)
