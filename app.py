@@ -1,5 +1,5 @@
 import pandas as pd
-from scipy.stats import zscore
+from scipy.stats import zscore, binned_statistic_2d
 import numpy as np
 import ipywidgets as widgets
 import matplotlib.pyplot as plt
@@ -40,7 +40,8 @@ st.markdown('<p style="font-size: 25px; font-weight: bold;">Goals For {} - {} Go
 with st.sidebar:
     st.markdown('<h1 style="font-family: Consolas; font-size: 34px;">Select xG map for or against.</h1>', unsafe_allow_html=True)
     option = st.selectbox(' ',('For','Against'))
-
+    st.markdown('<h1 style="font-family: Consolas; font-size: 34px;">Expected Event Locations.</h1>', unsafe_allow_html=True)
+    option2 = st.radio(' ',('Expected shot location','Expected goal location'))
 if option == 'For':
  d = df[df['Team']=='Colls']
  pl = d.Player.unique().tolist()
