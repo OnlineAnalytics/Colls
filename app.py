@@ -131,7 +131,7 @@ if option == 'Expected goal location':
   if toc == 'For':
    goal_df = df[(df['Team']=='Colls') & (df['Event']=='Goal')]
    pitch = VerticalPitch(pitch_type='opta',half=True,line_color='black',line_zorder=10)   
-   goal = pitch.bin_statistic(shot_df.X, 100-shot_df.Y, statistic='count', bins=(12, 8), normalize=False)
+   goal = pitch.bin_statistic(goal_df.X, 100-goal_df.Y, statistic='count', bins=(12, 8), normalize=False)
    goal_count = goal["statistic"]
    goal_probability = goal_count/len(df[df['Team']=='Colls'])
    fig, ax = pitch.grid(grid_height=0.9, title_height=0.06, axis=False,
