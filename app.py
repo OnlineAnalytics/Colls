@@ -99,7 +99,7 @@ if option == 'Expected shot location':
   shot_probability = len(shot_df)
   shot = pitch.bin_statistic(shot_df.X, 100-shot_df.Y, statistic='count', bins=(12,8),normalize=False)
   shot['statistic'] = shot_probability
-  fig, ax = pitch.draw(50,50)
+  fig, ax = pitch.draw(figsize=(50,50)
   pcm = pitch.heatmap(shot, cmap='Greens',edgecolor='grey',ax=ax)
   st.pyplot(fig)
   
