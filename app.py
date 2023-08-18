@@ -38,11 +38,10 @@ st.markdown('<p style="font-size: 45px; font-weight: bold;">Atherton Collieries 
 st.markdown('<p style="font-size: 25px; font-weight: bold;">Season total xG For {:.2f} - {:.2f} Season total xG Against</p>'.format(round(sum(df[df['Team']=='Colls'].xG),2),round(sum(df[df['Team']!='Colls'].xG),2)), unsafe_allow_html=True)
 st.markdown('<p style="font-size: 25px; font-weight: bold;">Goals For {} - {} Goals Against</p>'.format(len(df[(df['Team']=='Colls') & (df['Event']=='Goal')]),len(df[(df['Team']!='Colls') & (df['Event']=='Goal')])), unsafe_allow_html=True)
 with st.sidebar:
-    st.markdown('<h1 style="font-family: Consolas; font-size: 34px;">Select xG map for or against.</h1>', unsafe_allow_html=True)
-    option = st.selectbox(' ',('For','Against'))
-    st.markdown('<h1 style="font-family: Consolas; font-size: 34px;">Expected Event Locations.</h1>', unsafe_allow_html=True)
-    option2 = st.radio(' ',('Expected shot location','Expected goal location'))
-if option == 'For':
+    st.markdown('<h1 style="font-family: Consolas; font-size: 34px;">Select type of xG map.</h1>', unsafe_allow_html=True)
+    option = st.selectbox(' ',('xG For', 'xG Against', 'Expected shot location','Expected goal location'))
+   
+if option == 'xG For':
  d = df[df['Team']=='Colls']
  pl = d.Player.unique().tolist()
  pl.insert(0,'All')
@@ -76,7 +75,7 @@ if option == 'For':
    st.pyplot(fig)
    st.write(d.groupby('Player').agg({'xG':'sum'}))
 
-if option == 'Against':
+if option == 'xG Against':
  d = df[df['Team']!='Colls']
  d.X = 100-d.X
  pitch = VerticalPitch(pitch_type='opta', half = True)
@@ -90,3 +89,17 @@ if option == 'Against':
 
  st.pyplot(fig)
  st.write(d.groupby('Team').agg({'xG':'sum'}))
+
+if option == 'Expected shot location':
+ tob = st.selectbox("For or against?", ('For','Against'))
+  
+ if top == 'For':
+  shot_df = df[df['Team']=='Colls']
+  pitch = VerticalPitch(pitch_type='opta',half=True,line_color='black')   
+  shot_probability = len(shot_df)
+  shot = pitch.bin_statistic(shot_df.X, 100-shot_df.Y, statistic='count', bins=(12,8),normalize=False)
+  shot['statistic'] = shot_probability
+  fig, ax = pitch.draw(50,50)
+  pcm = pitch.heatmap(shot, cmap='Greens',edgecolor='grey',ax=ax)
+  st.pyplot(fig)
+  
