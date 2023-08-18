@@ -33,10 +33,10 @@ st.markdown("""
 #Remove Warnings
 warnings.filterwarnings("ignore", category=RuntimeWarning)
 pd.options.mode.chained_assignment = None
-df = pd.read_csv(r'E:\ath2.csv')
+df = pd.read_csv('/workspaces/Colls/ath2.csv')
 st.markdown('<p style="font-size: 45px; font-weight: bold;">Atherton Collieries xG Maps</p>', unsafe_allow_html=True)
-st.markdown('<p style="font-size: 30px; font-weight: bold;">Season total for {} - {} Season total against</p>'.format(round(sum(df[df['Team']=='Colls'].xG),2),round(sum(df[df['Team']!='Colls'].xG),2)), unsafe_allow_html=True)
-
+st.markdown('<p style="font-size: 30px; font-weight: bold;">Season total xG For {} - {} Season total xG Against</p>'.format(round(sum(df[df['Team']=='Colls'].xG),2),round(sum(df[df['Team']!='Colls'].xG),2)), unsafe_allow_html=True)
+st.markdown('<p style="font-size: 30px; font-weight: bold;">Goals For {} - {} Goals Against</p>'.format(sum(df[(df['Team']=='Colls') & (df['Event']=='Goal')]),sum(df[(df['Team']!='Colls') & (df['Event']=='Goal')])), unsafe_allow_html=True)
 with st.sidebar:
     st.markdown('<h1 style="font-family: Consolas; font-size: 34px;">Select xG map for or against.</h1>', unsafe_allow_html=True)
     option = st.selectbox('',('For','Against'))
