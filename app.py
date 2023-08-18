@@ -108,4 +108,40 @@ if option == 'Expected shot location':
   plt.show()
   shot_count = shot["statistic"]
   st.pyplot(fig)
+
   
+ if tob == 'Against':
+  shot_df = df[df['Team']!='Colls']
+  pitch = VerticalPitch(pitch_type='opta',half=True,line_color='black',line_zorder=10)   
+  shot = pitch.bin_statistic(100-shot_df.X, 100-shot_df.Y, statistic='count', bins=(12, 8), normalize=False)
+
+  fig, ax = pitch.grid(grid_height=0.9, title_height=0.06, axis=False,
+                     endnote_height=0.04, title_space=0, endnote_space=0)
+  pcm  = pitch.heatmap(shot, cmap='Greens', edgecolor='grey', ax=ax['pitch'])
+#legend to our plot
+  ax_cbar = fig.add_axes((1, 0.093, 0.03, 0.786))
+  cbar = plt.colorbar(pcm, cax=ax_cbar)
+  fig.suptitle('Shots 2D histogram', fontsize = 30)
+  plt.show()
+  shot_count = shot["statistic"]
+  st.pyplot(fig)
+
+if option == 'Expected goal location':
+  toc = st.selectbox("For or against?", ('For', 'Against'))
+  if toc == 'For':
+   goal_df = df[(df['Team']=='Colls') & (df['Event']=='Goal')
+   pitch = VerticalPitch(pitch_type='opta',half=True,line_color='black',line_zorder=10)   
+   goal = pitch.bin_statistic(shot_df.X, 100-shot_df.Y, statistic='count', bins=(12, 8), normalize=False)
+   goal_count = goal["statistic"]
+   goal_probability = goal_count/len(df[df['Team']=='Colls']
+   fig, ax = pitch.grid(grid_height=0.9, title_height=0.06, axis=False,
+                     endnote_height=0.04, title_space=0, endnote_space=0)
+   goal["statistic"] = goal_probability
+   pcm  = pitch.heatmap(goal, cmap='Reds', edgecolor='grey', ax=ax['pitch'])
+#legend to our plot
+   ax_cbar = fig.add_axes((1, 0.093, 0.03, 0.786))
+   cbar = plt.colorbar(pcm, cax=ax_cbar)
+   fig.suptitle('Goal probability 2D histogram', fontsize = 30)
+   plt.show()
+   st.pyplot(fig)
+   
