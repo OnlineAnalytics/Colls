@@ -96,14 +96,16 @@ if option == 'Expected shot location':
  if tob == 'For':
   shot_df = df[df['Team']=='Colls']
   pitch = VerticalPitch(pitch_type='opta',half=True,line_color='black')   
-  shot_probability = len(shot_df)
-  shot = pitch.bin_statistic(shot_df.X, 100-shot_df.Y, statistic='count', bins=(12,8),normalize=False)
-  shot['statistic'] = shot_probability
-  fig, ax = pitch.draw(figsize=(50,50))
-  pcm = pitch.heatmap(shot, cmap='Greens',edgecolor='grey',ax=ax)
+  shot = pitch.bin_statistic(shot_df.X, 100-shot_df.Y, statistic='count', bins=(16, 12), normalize=False)
+
+  fig, ax = pitch.grid(grid_height=0.9, title_height=0.06, axis=False,
+                     endnote_height=0.04, title_space=0, endnote_space=0)
+  pcm  = pitch.heatmap(shot, cmap='Greens', edgecolor='grey', ax=ax['pitch'])
+#legend to our plot
   ax_cbar = fig.add_axes((1, 0.093, 0.03, 0.786))
   cbar = plt.colorbar(pcm, cax=ax_cbar)
-  fig.suptitle('Shot probability 2D histogram', fontsize = 30)
+  fig.suptitle('Shots 2D histogram', fontsize = 30)
   plt.show()
+  shot_count = shot["statistic"]
   st.pyplot(fig)
   
