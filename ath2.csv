@@ -1,54 +1,54 @@
-,Team,Player,Event,X,Y,xG,Part
-0,Whitby,-,Shot Off,13,30,0.04,Foot
-1,Whitby,-,Shot Saved,2,64,0.1,Foot
-2,Whitby,-,Goal,3,42,0.27,Header
-3,Whitby,-,Goal,5,54,0.35,Foot
-4,Colls,J. Scanlon,Shot Off,82,68,0.02,Foot
-5,Colls,R. Pemberton,Shot Off,92,61,0.12,Foot
-6,Whitby,-,Shot Off,17,72,0.03,Foot
-7,Whitby,-,Shot Off,24,50,0.05,Foot
-8,Whitby,-,Shot Off,38,67,0.01,Foot
-9,Colls,L. Mansell,Shot Saved,94,55,0.19,Header
-10,Colls,M. Malumo,Shot Off,93,50,0.2,Foot
-11,Whitby, -,Shot Blocked,8,60,0.15,Foot
-12,Whitby,-,Shot Saved,23,42,0.03,Foot
-13,Colls,N. Caine,Shot Off,90,32,0.05,Foot
-0,Colls,J. Scanlon,Shot Saved,82,67,0.09,Foot
-1,Colls,B. Rydel,Shot Blocked,84,57,0.1,Foot
-2,Colls,J. Scanlon,Shot Off,95,66,0.1,Foot
-3,Colls,J. Scanlon,Goal,89,60,0.19,Foot
-4,Bradford PA,-,Shot Saved,27,32,0.03,Foot
-5,Colls,J. Boon,Shot Blocked,95,60,0.2,Foot
-6,Colls,L. Mansell,Shot Blocked,84,31,0.06,Foot
-7,Colls,N. Caine,Shot Saved,77,33,0.05,Foot
-8,Bradford PA,-,Shot Saved,1,30,0.01,Head
-9,Bradford PA,-,Shot Off,21,72,0.05,Foot
-10,Bradford PA,-,Shot Off,4,32,0.03,Head
-11,Colls,J. Askew,Shot Off,68,31,0.01,Foot
-12,Colls,H. Gregson,Shot Blocked,78,42,0.06,Foot
-13,Colls,J. Askew,Shot Off,83,31,0.05,Foot
-14,Colls,J. Boon,Shot Off,75,84,0.06,Foot
-15,Bradford PA,-,Shot Off,16,31,0.07,Foot
-16,Bradford PA,-,Shot Off,10,65,0.11,Foot
-17,Bradford PA,-,Shot Saved,7,60,0.08,Head
-18,Colls,J. Scanlon,Goal,90,32,0.21,Foot
-19,Bradford PA,-,Shot Saved,7,56,0.14,Head
-20,Rylands,-,Shot Off,9,31,0.07,Foot
-21,Rylands,-,Shot Off, 28,63,0.02,Foot
-22,Colls,L. Mansell,Goal,97,57,0.53,Foot
-23,Colls,J. Scanlon,Shot Blocked,92,69,0.12,Foot
-24,Rylands,-,Goal,16,66,0.07,Foot
-25,Rylands,-,Shot Saved,5,38,0.35,Foot
-26,Rylands,-,Shot Off,9,32,0.09,Foot
-27,Rylands,-,Shot Saved,18,60,0.07,Foot
-28,Rylands,-,Shot Blocked,15,55,0.14,Foot
-29,Rylands,-,Shot Saved,9,62,0.10,Foot
-30,Rylands,-,Shot Off,17,56,0.06,Foot
-31,Rylands,-,Shott Saved,22,64,0.03,Foot
-32,Colls,L. Mansell,Shot Saved,80,58,0.08,Foot
-33,Rylands,-,Shot Off,6,45,0.05,Head
-34,Colls,J. Scanlon,shot Off,89,56,0.33,Foot
-35,Rylands,-,Shot Saved,7,61,0.18,Foot
-36,Rylands,-,Shot Saved,26,58,0.03,Foot
+,Team,Player,Event,X,Y,xG,Part,Versus,H_A
+0,Whitby,-,Shot Off,13,30,0.04,Foot,Whitby,A
+1,Whitby,-,Shot Saved,2,64,0.1,Foot,Whitby,A
+2,Whitby,-,Goal,3,42,0.27,Header,Whitby,A
+3,Whitby,-,Goal,5,54,0.35,Foot,Whitby,A
+4,Colls,J. Scanlon,Shot Off,82,68,0.02,Foot,Whitby,A
+5,Colls,R. Pemberton,Shot Off,92,61,0.12,Foot,Whitby,A
+6,Whitby,-,Shot Off,17,72,0.03,Foot,Whitby,A
+7,Whitby,-,Shot Off,24,50,0.05,Foot,Whitby,A
+8,Whitby,-,Shot Off,38,67,0.01,Foot,Whitby,A
+9,Colls,L. Mansell,Shot Saved,94,55,0.19,Header,Whitby,A
+10,Colls,M. Malumo,Shot Off,93,50,0.2,Foot,Whitby,A
+11,Whitby, -,Shot Blocked,8,60,0.15,Foot,Whitby,A
+12,Whitby,-,Shot Saved,23,42,0.03,Foot,Whitby,A
+13,Colls,N. Caine,Shot Off,90,32,0.05,Foot,Whitby,A
+0,Colls,J. Scanlon,Shot Saved,82,67,0.09,Foot,Bradford PA,H
+1,Colls,B. Rydel,Shot Blocked,84,57,0.1,Foot,Bradford PA,H
+2,Colls,J. Scanlon,Shot Off,95,66,0.1,Foot,Bradford PA,H
+3,Colls,J. Scanlon,Goal,89,60,0.19,Foot,Bradford PA,H
+4,Bradford PA,-,Shot Saved,27,32,0.03,Foot,Bradford PA,H
+5,Colls,J. Boon,Shot Blocked,95,60,0.2,Foot,Bradford PA,H
+6,Colls,L. Mansell,Shot Blocked,84,31,0.06,Foot,Bradford PA,H
+7,Colls,N. Caine,Shot Saved,77,33,0.05,Foot,Bradford PA,H
+8,Bradford PA,-,Shot Saved,1,30,0.01,Head,Bradford PA,H
+9,Bradford PA,-,Shot Off,21,72,0.05,Foot,Bradford PA,H
+10,Bradford PA,-,Shot Off,4,32,0.03,Head,Bradford PA,H
+11,Colls,J. Askew,Shot Off,68,31,0.01,Foot,Bradford PA,H
+12,Colls,H. Gregson,Shot Blocked,78,42,0.06,Foot,Bradford PA,H
+13,Colls,J. Askew,Shot Off,83,31,0.05,Foot,Bradford PA,H
+14,Colls,J. Boon,Shot Off,75,84,0.06,Foot,Bradford PA,H
+15,Bradford PA,-,Shot Off,16,31,0.07,Foot,Bradford PA,H
+16,Bradford PA,-,Shot Off,10,65,0.11,Foot,Bradford PA,H
+17,Bradford PA,-,Shot Saved,7,60,0.08,Head,Bradford PA,H
+18,Colls,J. Scanlon,Goal,90,32,0.21,Foot,Bradford PA,H
+19,Bradford PA,-,Shot Saved,7,56,0.14,Head,Bradford PA,H
+20,Rylands,-,Shot Off,9,31,0.07,Foot,Rylands,H
+21,Rylands,-,Shot Off, 28,63,0.02,Foot,Rylands,H
+22,Colls,L. Mansell,Goal,97,57,0.53,Foot,Rylands,H
+23,Colls,J. Scanlon,Shot Blocked,92,69,0.12,Foot,Rylands,H
+24,Rylands,-,Goal,16,66,0.07,Foot,Rylands,H
+25,Rylands,-,Shot Saved,5,38,0.35,Foot,Rylands,H
+26,Rylands,-,Shot Off,9,32,0.09,Foot,Rylands,H
+27,Rylands,-,Shot Saved,18,60,0.07,Foot,Rylands,H
+28,Rylands,-,Shot Blocked,15,55,0.14,Foot,Rylands,H
+29,Rylands,-,Shot Saved,9,62,0.10,Foot,Rylands,H
+30,Rylands,-,Shot Off,17,56,0.06,Foot,Rylands,H
+31,Rylands,-,Shott Saved,22,64,0.03,Foot,Rylands,H
+32,Colls,L. Mansell,Shot Saved,80,58,0.08,Foot,Rylands,H
+33,Rylands,-,Shot Off,6,45,0.05,Head,Rylands,H
+34,Colls,J. Scanlon,shot Off,89,56,0.33,Foot,Rylands,H
+35,Rylands,-,Shot Saved,7,61,0.18,Foot,Rylands,H
+36,Rylands,-,Shot Saved,26,58,0.03,Foot,Rylands,H
 
 
