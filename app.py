@@ -42,42 +42,39 @@ with st.sidebar:
     option = st.selectbox(' ',('xG For', 'xG Against', 'Expected shot location','Expected goal location'))
    
 if option == 'xG For':
+ 
  d = df[df['Team']=='Colls']
- te = d.Versus.unique().tolist()
- te.insert(0,'All')
- tod = st.selectbox("Select 'All' to see all matches, or pick a specific match",te)
  pl = d.Player.unique().tolist()
  pl.insert(0,'All')
  top = st.selectbox("Select 'All' to see all shots, or pick a specific player", pl)
  
- if tod =='All':
-  if top == 'All':
+ if top == 'All':
+  d = df[df['Team']=='Colls']
+  d.Y = 100-d.Y
+  pitch = VerticalPitch(pitch_type='opta', half = True,line_color='k')
+  fig, ax = pitch.draw(figsize=(50,50))
+  pitch.scatter(d[d['Event'] =='Shot Off'].X,d[d['Event'] =='Shot Off'].Y,s=(d[d['Event'] =='Shot Off'].xG*90000),alpha = 0.8,label = 'Shot Off',ax=ax)
+  pitch.scatter(d[d['Event'] =='Shot Saved'].X,d[d['Event'] =='Shot Saved'].Y,s=(d[d['Event'] =='Shot Saved'].xG*90000),c='orange',alpha=0.8,label = 'Saved', ax=ax)
+  pitch.scatter(d[d['Event'] =='Goal'].X,d[d['Event'] =='Goal'].Y,s=(d[d['Event'] =='Goal'].xG*90000),c='green',alpha=0.8,label = 'Goal', ax=ax)
+  pitch.scatter(d[d['Event'] =='Shot Blocked'].X,d[d['Event'] =='Shot Blocked'].Y,s=(d[d['Event'] =='Shot Blocked'].xG*90000),c='red',alpha=0.8,label = 'Blocked', ax=ax)
+  
+  plt.legend(fontsize=80,loc=1)
+  st.pyplot(fig)
+  st.write(d.groupby('Player').agg({'xG':'sum'}))
+ if top !='All':
    d = df[df['Team']=='Colls']
    d.Y = 100-d.Y
+   player = top
+   d = d[d['Player']==player]
    pitch = VerticalPitch(pitch_type='opta', half = True,line_color='k')
    fig, ax = pitch.draw(figsize=(50,50))
    pitch.scatter(d[d['Event'] =='Shot Off'].X,d[d['Event'] =='Shot Off'].Y,s=(d[d['Event'] =='Shot Off'].xG*90000),alpha = 0.8,label = 'Shot Off',ax=ax)
    pitch.scatter(d[d['Event'] =='Shot Saved'].X,d[d['Event'] =='Shot Saved'].Y,s=(d[d['Event'] =='Shot Saved'].xG*90000),c='orange',alpha=0.8,label = 'Saved', ax=ax)
    pitch.scatter(d[d['Event'] =='Goal'].X,d[d['Event'] =='Goal'].Y,s=(d[d['Event'] =='Goal'].xG*90000),c='green',alpha=0.8,label = 'Goal', ax=ax)
    pitch.scatter(d[d['Event'] =='Shot Blocked'].X,d[d['Event'] =='Shot Blocked'].Y,s=(d[d['Event'] =='Shot Blocked'].xG*90000),c='red',alpha=0.8,label = 'Blocked', ax=ax)
-   
    plt.legend(fontsize=80,loc=1)
    st.pyplot(fig)
    st.write(d.groupby('Player').agg({'xG':'sum'}))
-  if top !='All':
-    d = df[df['Team']=='Colls']
-    d.Y = 100-d.Y
-    player = top
-    d = d[d['Player']==player]
-    pitch = VerticalPitch(pitch_type='opta', half = True,line_color='k')
-    fig, ax = pitch.draw(figsize=(50,50))
-    pitch.scatter(d[d['Event'] =='Shot Off'].X,d[d['Event'] =='Shot Off'].Y,s=(d[d['Event'] =='Shot Off'].xG*90000),alpha = 0.8,label = 'Shot Off',ax=ax)
-    pitch.scatter(d[d['Event'] =='Shot Saved'].X,d[d['Event'] =='Shot Saved'].Y,s=(d[d['Event'] =='Shot Saved'].xG*90000),c='orange',alpha=0.8,label = 'Saved', ax=ax)
-    pitch.scatter(d[d['Event'] =='Goal'].X,d[d['Event'] =='Goal'].Y,s=(d[d['Event'] =='Goal'].xG*90000),c='green',alpha=0.8,label = 'Goal', ax=ax)
-    pitch.scatter(d[d['Event'] =='Shot Blocked'].X,d[d['Event'] =='Shot Blocked'].Y,s=(d[d['Event'] =='Shot Blocked'].xG*90000),c='red',alpha=0.8,label = 'Blocked', ax=ax)
-    plt.legend(fontsize=80,loc=1)
-    st.pyplot(fig)
-    st.write(d.groupby('Player').agg({'xG':'sum'}))
 
 if option == 'xG Against':
  d = df[df['Team']!='Colls']
